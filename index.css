@@ -91,7 +91,6 @@ form {
 	background-color: #4b4b4b;
 }
 
-
 .base-landing-logo {
 	height: 100vh;
 	display: flex;
@@ -101,14 +100,14 @@ form {
 /*  */
 
 body {
-	background-color: var(--mainBg);
-	color: var(--mainColor);
-	font-family: var(--font);
+	background-color: #121212;
+	color: white;
+	font-family: "Inter", sans-serif;
 }
 
 .wrapper,
 #wrapper-watch-list {
-	border: 1px solid magenta;
+	/* border: 1px solid magenta; */
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -117,7 +116,7 @@ body {
 
 .movie-search-results {
 	box-shadow: 0px 0px 5px whitesmoke;
-	margin: 15px;
+	margin: 10px;
 	display: flex;
 	width: 600px;
 	height: 200px;
@@ -138,7 +137,7 @@ body {
 	transform: scale(1.035);
 }
 
-.movie-search-results img {
+.poster-img {
 	height: 150px;
 	width: 100px;
 	padding: 15px;
@@ -147,17 +146,6 @@ body {
 .movie-information-panel {
 	display: flex;
 	justify-content: space-around;
-}
-
-.addToWatchlist {
-	border: none;
-	display: flex;
-	height: 35px;
-	outline: none;
-	padding: 10px;
-	align-items: center;
-	/* justify-content: space-between; */
-	border-radius: 5px;
 }
 
 .addToWatchlist:hover {
@@ -172,10 +160,71 @@ body {
 /* the search bar */
 
 svg {
-	height: 18px;
-	width: 18px;
+	height: 16px;
+	width: 16px;
 	margin-right: 5px;
-	/* display: flex; */
-	/* align-items: center; */
-	/* justify-content: center; */
 }
+
+/* Movie results styling */
+
+#title {
+	font-size: 18px;
+	font-weight: 500;
+	color: #fff;
+}
+
+#rating {
+	font-size: 12px;
+	font-weight: 400;
+	color: #fff;
+}
+
+#movie-information-panel {
+	font-size: 12px;
+	font-weight: 400;
+	color: white;
+}
+
+.star {
+	height: 15px;
+	width: 15px;
+}
+
+#addToWatchlist {
+	display: flex;
+	height: 20px;
+	align-items: center;
+	padding: 10px;
+}
+
+#plot {
+	font-size: 14px;
+	font-weight: 400;
+	color: #a5a5a5;
+}
+
+
+/* `<section id="movie-search-results" class="movie-search-results" data-movie=${data.imdbID}>
+    <img class="poster-img" src=${data.Poster !== "N/A" ? data.Poster : placeHolderURL}
+     height="160PX" width="100PX">
+		
+		 <div id='title-panel'>    
+		 <div class="movie" id="movie">
+     <h2 class="title" id="title">${
+				data.Title
+			} <span class="rating" id="rating">
+			<img class="star" src="./Icon.png" alt="star rating icon"> ${data.imdbRating}</span></h2> 
+			</div>
+ 
+     <div id="movie-information-panel" class="movie-information-panel">
+      <span class="runtime" id="runtime">${data.Runtime}</span>
+      <span class="genre" id="genre">${data.Genre}</span>
+      <button id="addToWatchlist" class="addToWatchlist" data-add=${
+				data.imdbID
+			}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
+     Watchlist</button>
+     </div>
+     <p class="plot" id="plot">${data.Plot}</p>
+    </div>
+   </section>`; */

@@ -1,68 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
- <link rel="stylesheet" href="index.css">
- <title>WatchList: Home</title>
+<head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="index.css">
+      <title>WatchList: Home</title>
 </head>
 
 <body>
-      <a href="watchlist.html">WatchList -- click for new page</a>
- <header class="main-header">
+      <header class="main-header">
+            <h1>Find your film</h1>
+            <a href="watchlist.html">
+                  <h2> My Watchlist </h2>
+            </a>
+      </header>
+      <main class="main-container">
+            <div class="search-panel">
+                  <form action="#" id="form" class="form">
+                        <label for="search-bar">
+                              <input type="text" name="search" id="search" class="search"
+                                    placeholder="Search for a movie...">
+                        </label>
+                        <button class="btn search-btn" id="btn">Search</button>
+                  </form>
+            </div>
+            <!-- Make the container for the movie search results here -->
 
- </header>
- <main class="main-container">
-  <div class="search-panel">
-   <form action="#" id="form" class="form">
-    <label for="search-bar">
-     <input type="text" name="search" id="search" class="search" placeholder="Search for a movie...">
-    </label>
-    <button class="btn search-btn" id="btn">Search</button>
-   </form>
-  </div>
-
-  <!-- Make the container for the movie search results here -->
-
-  <h1 class='landing-text' id='landing-text'> Search for a movie </h1>
-
-  <div class="wrapper" id="wrapper">
-
-   <!-- <section id="movie-search-results" class="movie-search-results">
-    <img src="${data.Poster}"
-     height="160PX" width="100PX">
-    <div class="movie" id="movie">
-     <h2 class="title" id="title">${data.Title}<span class="rating" id="rating">${data.Rating}</span></h2>
-     <div id="movie-information-panel" class="movie-information-panel">
-      <span class="runtime" id="runtime">${data.Runtime}</span>
-      <span class="genre" id="genre">${data.Genre}</span>
-      <button id="addToWatchlist" class="addToWatchlist">Add to Watchlist</button>
-     </div>
-     <p class="plot" id="plot">${${data.Plot}</p>
-    </div>
-   </section> -->
-  </div>
-
-
-
-
- </main>
- <script src="index.js" type="module"></script>
+            <div class="wrapper" id="wrapper">
+                  <div class="base-landing-logo"><img src="./Group 199.png" alt="base icon search for a movie"></div>
+            </div>
+      </main>
+      <script src="index.js" type="module"></script>
 </body>
 
 </html>
-
-
-<!-- {Title: 'Twilight'
- Runtime: '122 min', …}
-Genre: "Drama, Fantasy, Romance"
-Plot: "When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire."
-Poster: "https://m.media-amazon.com/images/M/MV5BMTQ2NzUxMTAxN15BMl5BanBnXkFtZTcwMzEyMTIwMg@@._V1_SX300.jpg"
-Production: "N/A"
-Rated: "PG-13"
-
-imdbRating: "5.3"
-imdbVotes: "463,497" -->

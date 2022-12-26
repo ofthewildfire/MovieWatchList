@@ -1,15 +1,113 @@
 :root {
 	--mainColor: white;
 	--mainBg: #121212;
-;
+	--font: "Inter", sans-serif;
 }
+
+/* Header image */
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 200px;
+	width: 100%;
+	padding: 0 20px;
+	background-image: url(./imageheader.png);
+	box-sizing: border-box;
+}
+header h1 {
+	margin: 0;
+	font-size: 45px;
+	font-weight: 800;
+}
+
+header h2 {
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 1.05px;
+}
+
+header a {
+	text-decoration: none;
+	color: white;
+}
+
+header a:hover,
+header a:focus {
+	color: grey;
+}
+
+header a:active {
+	transform: scale(1.15);
+	opacity: 0.75;
+}
+
+/*  */
+
+/* Search bar styles */
+form {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.search {
+	align-items: center;
+	padding: 0px 15px;
+	height: 38px;
+	width: 462px;
+	background: #2e2e2f;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+	border-radius: 6px 0px 0px 6px;
+	inset: none;
+	outline: none;
+	border: none;
+	box-sizing: border-box;
+}
+
+#btn {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 9px 11px 9px 17px;
+	width: 120px;
+	height: 38px;
+	background: #4b4b4b;
+	border: none;
+	outline: none;
+	border-radius: 0px 6px 6px 0px;
+	color: white;
+	font-weight: 300;
+}
+
+#btn:hover {
+	cursor: pointer;
+	background-color: #222;
+}
+
+#btn:active {
+	cursor: pointer;
+	background-color: #4b4b4b;
+}
+
+
+.base-landing-logo {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+/*  */
 
 body {
 	background-color: var(--mainBg);
 	color: var(--mainColor);
+	font-family: var(--font);
 }
 
-.wrapper, #wrapper-watch-list {
+.wrapper,
+#wrapper-watch-list {
 	border: 1px solid magenta;
 	display: flex;
 	flex-direction: column;
@@ -34,9 +132,8 @@ body {
 	border-bottom: 2px solid grey;
 }
 
-
 .movie-search-results:hover {
-	transition-delay: .5s;
+	transition-delay: 0.5s;
 	transition: ease-in-out;
 	transform: scale(1.035);
 }
@@ -52,7 +149,7 @@ body {
 	justify-content: space-around;
 }
 
-button {
+.addToWatchlist {
 	border: none;
 	display: flex;
 	height: 35px;
@@ -63,25 +160,16 @@ button {
 	border-radius: 5px;
 }
 
-.search-btn {
-	border: none;
-	display: block;
-	outline: none;
-	padding: 5px;
-	border-radius: 5px;
+.addToWatchlist:hover {
+	transform: scale(0.9);
 }
 
-button:hover {
-	transform: scale(.90);
-}
-
-button:active {
+.addToWatchlist:active {
 	box-shadow: 0px 0px 5px #222;
-	transform: scale(.70)
+	transform: scale(0.7);
 }
 
 /* the search bar */
-
 
 svg {
 	height: 18px;

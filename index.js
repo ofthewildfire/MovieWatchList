@@ -19,9 +19,18 @@ export async function fetchWithSearchName(e) {
 	const response = await fetch(`${BASE_URL}s=${searchInputValue}`);
 	const data = await response.json();
 	searchResults = data.Search;
-	getSearchedNameIds();
-	fetchWithIds();
-	finalSearch();
+
+	if (searchResults) {
+		getSearchedNameIds();
+		fetchWithIds();
+		finalSearch();
+	} else {
+		throw Error(
+			(document.getElementById(
+				"wrapper"
+			).innerHTML = `<h1 class="no-movie"> No movies matched your search </h1>`)
+		);
+	}
 }
 
 function getSearchedNameIds() {
@@ -50,29 +59,25 @@ function finalSearch() {
 		feed += `<section id="movie-search-results" class="movie-search-results" data-movie=${
 			data.imdbID
 		}>
-    <img class="poster-img" src=${
-			data.Poster !== "N/A" ? data.Poster : placeHolderURL
-		}
-     height="160PX" width="100PX">
-    <div class="movie" id="movie">
-     <h2 class="title" id="title">${
-				data.Title
-			} <span class="rating" id="rating">
-   <img class="star" src="./Icon.png" alt="star rating icon"> ${
-			data.imdbRating
-		}           </span></h2>
-     <div id="movie-information-panel" class="movie-information-panel">
-      <span class="runtime" id="runtime">${data.Runtime}</span>
-      <span class="genre" id="genre">${data.Genre}</span>
-      <button id="addToWatchlist" class="addToWatchlist" data-add=${
-				data.imdbID
-			}>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
-     Watchlist</button>
-     </div>
-     <p class="plot" id="plot">${data.Plot}</p>
-    </div>
-   </section>`;
+				<img class="poster-img" src=${
+					data.Poster !== "N/A" ? data.Poster : placeHolderURL
+				}
+					height="160PX" width="100PX">
+				<div class="movie" id="movie">
+					<h2 class="title" id="title">${data.Title} <span class="rating" id="rating">
+			<img class="star" src="./Icon.png" alt="star rating icon"> ${
+				data.imdbRating
+			}           </span></h2>
+					<div id="movie-information-panel" class="movie-information-panel">
+						<span class="runtime" id="runtime">${data.Runtime}</span>
+						<span class="genre" id="genre">${data.Genre}</span>
+						<button id="addToWatchlist" class="addToWatchlist" data-add=${data.imdbID}>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
+					Watchlist</button>
+					</div>
+					<p class="plot" id="plot">${data.Plot}</p>
+				</div>
+			</section>`;
 		document.getElementById("wrapper").innerHTML = feed;
 
 		if (document.getElementsByClassName("addToWatchList")) {
@@ -117,31 +122,31 @@ export function getWatchList() {
 		html += `<section id="movie-search-results" class="movie-search-results" data-movie=${
 			data.imdbID
 		}>
-    <img class='poster-img' src=${
-			data.Poster !== "N/A" ? data.Poster : placeHolderURL
-		}
-     height="160PX" width="100PX">
+				<img class='poster-img' src=${
+					data.Poster !== "N/A" ? data.Poster : placeHolderURL
+				}
+					height="160PX" width="100PX">
 
 
-    <div class="movie" id="movie">
-     <h2 class="title" id="title">${
-				data.Title
-			} <span class="rating" id="rating"> <img class="star" src="./Icon.png" alt="star rating icon">  ${
+				<div class="movie" id="movie">
+					<h2 class="title" id="title">${
+						data.Title
+					} <span class="rating" id="rating"> <img class="star" src="./Icon.png" alt="star rating icon">  ${
 			data.imdbRating
 		}</span></h2>
 
-     <div id="movie-information-panel" class="movie-information-panel">
-      <span class="runtime" id="runtime">${data.Runtime}</span>
-      <span class="genre" id="genre">${data.Genre}</span>
-      <button id="removeFromWatchlist" class="removeFromWatchlist" data-remove=${
-				data.imdbID
-			}>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg>
-      Watchlist</button>
-     </div>
-     <p class="plot" id="plot">${data.Plot}</p>
-    </div>
-   </section>`;
+					<div id="movie-information-panel" class="movie-information-panel">
+						<span class="runtime" id="runtime">${data.Runtime}</span>
+						<span class="genre" id="genre">${data.Genre}</span>
+						<button id="removeFromWatchlist" class="removeFromWatchlist" data-remove=${
+							data.imdbID
+						}>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg>
+						Watchlist</button>
+					</div>
+					<p class="plot" id="plot">${data.Plot}</p>
+				</div>
+			</section>`;
 	});
 	return html;
 }
@@ -153,18 +158,18 @@ export function getWatchList() {
 let GetLocalStorage =  JSON.parse(localStorage.getItem("watchlist"));
 let watchListArr = [];
 
-when an item is clicked i compared the click location with the data attribute if they matched i would then take the entry matching the click data attribute and push it (Add it) to the 'WatchlistArr' array 
+when an item is clicked i compared the click location with the data attribute if they matched i would then take the entry matching the click data attribute and push it (Add it) to the 'WatchlistArr' array
 
 watchListArr.push(clickedItem)
 
-then i would take that clicked item and set the data inside it to a localStorage 
+then i would take that clicked item and set the data inside it to a localStorage
 
 localStorage.setItem('key', watchListArr)
 
-problem here was simple. 
+problem here was simple.
 
-whenever now i clicked again this logic would run all over again and OVERWRITE the first set, since i am setting all new clicks to the current location of data. never actually retrieving anything at all. 
+whenever now i clicked again this logic would run all over again and OVERWRITE the first set, since i am setting all new clicks to the current location of data. never actually retrieving anything at all.
 
-
+fixed my erroneous error!
 
 */

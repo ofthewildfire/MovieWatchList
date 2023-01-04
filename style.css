@@ -1,4 +1,6 @@
 :root {
+	--mainColor: white;
+	--mainBg: #fff;
 	--font: "Inter", sans-serif;
 }
 
@@ -55,7 +57,7 @@ form {
 	padding: 0px 15px;
 	height: 38px;
 	width: 462px;
-	background: #4e4e50;
+	background: #2e2e2f;
 	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 	border-radius: 6px 0px 0px 6px;
 	inset: none;
@@ -72,12 +74,12 @@ form {
 	padding: 9px 11px 9px 17px;
 	width: 120px;
 	height: 38px;
-	background: #dcd5d5;
+	background: #4b4b4b;
 	border: none;
 	outline: none;
 	border-radius: 0px 6px 6px 0px;
-	color: #2e2e2f;
-	font-weight: 400;
+	color: white;
+	font-weight: 300;
 }
 
 #btn:hover {
@@ -94,26 +96,27 @@ form {
 	height: 100vh;
 	display: flex;
 	align-items: center;
-	justify-content: center;
 }
 
 /*  */
 
 body {
-	background-color: #ffffff;
+	background-color: #fff;
 	color: white;
 	font-family: "Inter", sans-serif;
 }
 
-.wrapper {
+.wrapper,
+#wrapper-watch-list {
 	/* border: 1px solid magenta; */
+	margin: 20px 0px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	gap: 10px;
-	padding: 10px;
 }
 
 .movie-search-results {
+	/* box-shadow: 0px 0px 5px whitesmoke; */
 	margin: 10px;
 	display: flex;
 	flex-direction: column;
@@ -121,6 +124,7 @@ body {
 	width: 400px;
 	padding: 0 15px;
 	border-radius: 4px;
+
 	align-items: center;
 	border: 0.2px solid rgba(135, 135, 135, 0.47);
 	margin: 0 auto;
@@ -155,8 +159,8 @@ body {
 /* the search bar */
 
 svg {
-	height: 14px;
-	width: 14px;
+	height: 12px;
+	width: 12px;
 	margin-right: 5px;
 }
 
@@ -205,9 +209,4 @@ svg {
 	font-weight: 400;
 	/* color: #a5a5a5; */
 	color: #2e2e2f;
-}
-
-.no-movie {
-	text-align: center;
-	color: rgb(136, 129, 129);
 }

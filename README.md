@@ -1,4 +1,4 @@
-﻿# Watchlist Movie App
+# Watchlist Movie App
 
 This is a Scrimba Frontend Path solo project.
 
@@ -8,7 +8,7 @@ This is a Scrimba Frontend Path solo project.
 
 # Currently
 
--[x] The search functionality works / fetch from the omdb api and it retunrs an
+- [x] The search functionality works / fetch from the omdb api and it retunrs an
 array of movies which are renderd on the page.
 
 - [x] LocalStorage works
